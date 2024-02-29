@@ -1,12 +1,16 @@
 package edu.ucalgary.opp;
 import java.util.List;
+import java.util.*;
 
 public class ToDoList implements IToDoList{
     private List<Task> taskList;
+	private Stack<List<Task>> stack;
+	
 	
 	@override
     public void addTask(Task task){
         boolean exists = false;
+		stack.push(taskList);
         for(int i = 0; i < taskList.size();i++){
             if (task.getId() == taskList.get(i).getId()){
                 exists = true;
@@ -19,6 +23,7 @@ public class ToDoList implements IToDoList{
     }
 	@override
     public void completeTask(String id){
+		stack.push(taskList);
         for(int i = 0; i < taskList.size();i++){
             if(taskList.get(i).getId().equals(id)){
                 taskList.get(i).setIsCompleted(true);
@@ -28,6 +33,7 @@ public class ToDoList implements IToDoList{
     }
 	@override
     public void deleteTask(String id){
+		stack.push(taskList);
         for(int i = 0; i < taskList.size();i++){
             if(taskList.get(i).getId().equals(id)){
                 taskList.remove(i)
@@ -37,6 +43,7 @@ public class ToDoList implements IToDoList{
     }
 	@override
     public void editTask(String id, String title, boolean isComplete){
+		stack.push(taskList);
         for(int i = 0; i < taskList.size();i++){
             if(taskList.get(i).getId().equals(id)){
                 taskList.get(i).setTitle(title);
@@ -46,7 +53,8 @@ public class ToDoList implements IToDoList{
     }
 	@override
     public void undo(){
-
+		taskList = stack.pop();
+		
     }
 	@override
     public void listTasks(){
