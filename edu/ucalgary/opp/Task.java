@@ -8,34 +8,34 @@ private String Id;
 private String title;
 private boolean isCompleted;
 
-
-public Class Task(String Id,  String title){
+// Task constructor 
+public Task(String Id, String title, boolean isCompleted){
     this.id = Id;
     this.title = title;
-    this.isCompleted = false;
+    this.isCompleted = isCompleted;}
 
-}
 
-public String getId() {
-    return Id;
-}
+ //setters
+public void setTitle(String title) {
+        this.title = title;
+}    
 
 public void setId(String Id) {
     this.id = Id;
 }
 
+//getters
+public String getId() {
+    return Id;
+}
 public String getTitle() {
     return title;
 }
 
-public void setTitle(String title) {
-    this.title = title;
-}
 
 public boolean isCompleted() {
     return isCompleted;
 }
-
 public void setCompleted(boolean completed) {
     isCompleted = completed;
 }
