@@ -14,6 +14,12 @@ public Task(String Id, String title, boolean isCompleted){
     this.title = title;
     this.isCompleted = isCompleted;}
 
+// Task constructor 
+public Task(String Id, String title){
+    this.Id = Id;
+    this.title = title;
+}
+
 
  //setters
 public void setTitle(String title) {
