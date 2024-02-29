@@ -32,6 +32,11 @@ public String getTitle() {
     return title;
 }
 
+public boolean getcompleted(){
+    return isCompleted;
+}
+
+
 
 public boolean isCompleted() {
     return isCompleted;
