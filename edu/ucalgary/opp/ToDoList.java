@@ -1,8 +1,10 @@
 package edu.ucalgary.opp;
 import java.util.List;
 
-public class ToDoList{
+public class ToDoList implements IToDoList{
     private List<Task> taskList;
+	
+	@override
     public void addTask(Task task){
         boolean exists = false;
         for(int i = 0; i < taskList.size();i++){
@@ -15,6 +17,7 @@ public class ToDoList{
             taskList.add(task);
         }
     }
+	@override
     public void completeTask(String id){
         for(int i = 0; i < taskList.size();i++){
             if(taskList.get(i).getId().equals(id)){
@@ -23,6 +26,7 @@ public class ToDoList{
             }
         }
     }
+	@override
     public void deleteTask(String id){
         for(int i = 0; i < taskList.size();i++){
             if(taskList.get(i).getId().equals(id)){
@@ -31,6 +35,7 @@ public class ToDoList{
             }
         }
     }
+	@override
     public void editTask(String id, String title, boolean isComplete){
         for(int i = 0; i < taskList.size();i++){
             if(taskList.get(i).getId().equals(id)){
@@ -39,9 +44,11 @@ public class ToDoList{
             }
         }
     }
+	@override
     public void undo(){
 
     }
+	@override
     public void listTasks(){
         for(int i = 0; i < taskList.size();i++){
             System.out.println("Id: ", taskList.get(i).getId(), " Title: ",taskList.get(i).getTitle()," isComplete: ",taskList.get(i).getIsComplete());
