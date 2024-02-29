@@ -32,15 +32,10 @@ public String getTitle() {
     return title;
 }
 
-public boolean getcompleted(){
+public boolean getCompleted(){
     return isCompleted;
 }
 
-
-
-public boolean isCompleted() {
-    return isCompleted;
-}
 public void setCompleted(boolean completed) {
     isCompleted = completed;
 }
